@@ -102,4 +102,10 @@ class AlternativeController extends Controller
         return redirect()->route('alternative.index')
             ->with('Sukses,alternatif berhasil dihapus');
     }
+    public function search(Request $request)
+    {
+        $keyword = $request->search;
+        $alternatif = alternative::where('nama_alternatif', 'like', "%" . $keyword . "%")->paginate(5);
+        return view('alternatif.index', compact('alternatif'))->with('i', (request()->input('page', 1) - 1) * 5);
+    }
 }

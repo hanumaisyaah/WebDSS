@@ -103,4 +103,10 @@ class CriteriaController extends Controller
         return redirect()->route('criteria.index')
             ->with('Sukses,kriteria berhasil dihapus');
     }
+    public function search(Request $request)
+    {
+        $keyword = $request->search;
+        $kriteria = criteria::where('nama_kriteria', 'like', "%" . $keyword . "%")->paginate(5);
+        return view('kriteria.index', compact('kriteria'))->with('i', (request()->input('page', 1) - 1) * 5);
+    }
 }

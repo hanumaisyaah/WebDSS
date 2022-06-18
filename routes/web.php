@@ -19,4 +19,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::resource('alternative', AlternativeController::class);
+Route::get('/search', [AlternativeController::class, 'search'])->name('search');
 Route::resource('criteria', CriteriaController::class);
+Route::get('/search', [CriteriaController::class, 'search'])->name('search');
