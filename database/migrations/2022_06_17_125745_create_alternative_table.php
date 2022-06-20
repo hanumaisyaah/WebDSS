@@ -16,7 +16,12 @@ class CreateAlternativeTable extends Migration
         Schema::create('alternative', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('nama_alternatif', 100);
+            $table->string('nama_mahasiswa');
+            $table->float('grade');
+            $table->string('major');
+            $table->float('gpa');
+            $table->float('skkm');
+            $table->float('parentsalary');
         });
     }
 
