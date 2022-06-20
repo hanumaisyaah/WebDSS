@@ -22,3 +22,6 @@ Route::resource('alternative', AlternativeController::class);
 Route::get('/search', [AlternativeController::class, 'search'])->name('search');
 Route::resource('criteria', CriteriaController::class);
 Route::get('/search', [CriteriaController::class, 'search'])->name('search');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
