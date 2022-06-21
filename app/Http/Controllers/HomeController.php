@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\alternative;
 use Illuminate\Http\Request;
 use Auth;
 use DB;
@@ -26,10 +27,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if(Auth::User()->level == 1){
-            return view('admin.index');
-        }else{
-        return view('user.index');
+        if (Auth::User()->level == 1) {
+            $alternative = alternative::get();
+            return view('admin.adminHome');
+        } else {
+            return view('user.index');
         }
     }
 }

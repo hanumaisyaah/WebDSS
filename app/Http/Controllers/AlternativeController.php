@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\alternative;
 use DB;
 
-
 class AlternativeController extends Controller
 {
     /**
