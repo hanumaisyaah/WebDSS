@@ -17,7 +17,7 @@ class AlternativeController extends Controller
     public function index()
     {
         $alternatif = DB::table('alternative')->get();
-        return view ('alternatif.index', compact('alternatif'));
+        return view ('admin.index', compact('alternatif'));
     }
 
     /**
@@ -27,7 +27,7 @@ class AlternativeController extends Controller
      */
     public function create()
     {
-        return view('alternatif.create');
+        return view('user.input');
     }
 
     /**
@@ -39,13 +39,17 @@ class AlternativeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama_alternatif'=>'required',
+            'nama_mahasiswa'=>'required',
+            'grade'=>'required',
+            'major'=>'required',
+            'gpa'=>'required',
+            'skkm'=>'required',
+            'parentsalary'=>'required',
         ]);
 
         alternative::create($request->all());
 
-        return redirect()->route('alternative.index')
-            ->with('Sukses, alternatif telah ditambahkan');
+        return view('user.index');
     }
 
     /**
@@ -68,7 +72,7 @@ class AlternativeController extends Controller
     public function edit($id)
     {
         $alternatif = DB::table('alternative')->where('id', $id)->first();
-        return view('alternatif.edit', compact('alternatif'));
+        return view('admin.edit', compact('alternatif'));
     }
 
     /**
@@ -81,8 +85,13 @@ class AlternativeController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nama_alternatif'=>'required',
-        ]);;
+            'nama_mahasiswa'=>'required',
+            'grade'=>'required',
+            'major'=>'required',
+            'gpa'=>'required',
+            'skkm'=>'required',
+            'parentsalary'=>'required',
+        ]);
 
         alternative::find($id)->update($request->all());
 
@@ -106,6 +115,6 @@ class AlternativeController extends Controller
     {
         $keyword = $request->search;
         $alternatif = alternative::where('nama_alternatif', 'like', "%" . $keyword . "%")->paginate(5);
-        return view('alternatif.index', compact('alternatif'))->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('admin.index', compact('alternatif'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 }

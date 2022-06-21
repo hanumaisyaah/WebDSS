@@ -38,7 +38,20 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class=" row mb-3">
+                            <label for="level" class="col-md-4 col-form-label text-md-end">{{ __('Level') }}</label>
 
+                            <div class="col-md-6">
+                                <select name="level" class="form-control @error('level') is-invalid @enderror">
+                                    <option value="2">mahasiswa</option>
+                                </select>
+                                @error('level')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
                         <div class="row mb-3">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
 

@@ -18,10 +18,14 @@ use App\Http\Controllers\CriteriaController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::resource('alternative', AlternativeController::class);
-Route::get('/search', [AlternativeController::class, 'search'])->name('search');
-Route::resource('criteria', CriteriaController::class);
-Route::get('/search', [CriteriaController::class, 'search'])->name('search');
+Route::middleware(['auth'])->group(function () {
+    Route::resource('alternative', AlternativeController::class);
+    Route::get('/search', [AlternativeController::class, 'search'])->name('search');
+    Route::resource('criteria', CriteriaController::class);
+    Route::get('/search', [CriteriaController::class, 'search'])->name('search');
+
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
