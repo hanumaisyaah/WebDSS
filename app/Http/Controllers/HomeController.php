@@ -31,7 +31,7 @@ class HomeController extends Controller
             $alternative = alternative::get();
             return view('admin.adminHome');
         } else {
-            return view('user.index');
+            return view('user.userHome');
         }
     }
 }

@@ -1,4 +1,4 @@
-@extends("layout")
+@extends("Layouts.template")
 
 @section('title')
 <h4>Input data</h4>
@@ -15,34 +15,45 @@
 	</ul>
 </div>
 @endif
-<h4 class = "mb-3">Input Data</h4>
+<br>
+<div class="container">
+	<div class="row justify-content-center">
+	
+		<div class="card">
+		<div class = "card-header">Input Data</div>
+		<div class="card-body">
 <form method="post" action="{{ route('alternative.store') }}" enctype="multipart/form-data" id="myForm">
 	@csrf
+	
 	<div class="form-group">
 		<label for="nama_mahasiswa">Nama</label>
 		<input type="text" name="nama_mahasiswa" class="form-control" id="nama_mahasiswa">
-	</div>
+	</div><br>
 	<div class="form-group">
 		<label for="grade">Grade</label>
 		<input type="text" name="grade" class="form-control" id="grade">
-	</div>
+	</div><br>
 	<div class="form-group">
 		<label for="major">Major</label>
 		<input type="text" name="major" class="form-control" id="major">
-	</div>
+	</div><br>
 	<div class="form-group">
 		<label for="gpa">GPA</label>
 		<input type="text" name="gpa" class="form-control" id="gpa">
-	</div>
+	</div><br>
 	<div class="form-group">
 		<label for="skkm">SKKM</label>
 		<input type="text" name="skkm" class="form-control" id="skkm">
-	</div>
+	</div><br>
 	<div class="form-group">
 		<label for="parentsalary">Parent Salary</label>
 		<input type="text" name="parentsalary" class="form-control" id="parentsalary">
-	</div>
+	</div><br>
 	<button type="submit" class="btn btn-primary" id = "submit">Submit</button>
-</form>
+</form><br>
+</div>
+</div>
+</div>
+</div>
 
 @endsection
