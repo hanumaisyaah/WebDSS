@@ -28,7 +28,6 @@ class HomeController extends Controller
     public function index()
     {
         if (Auth::User()->level == 1) {
-            $alternative = alternative::get();
             return view('admin.adminHome');
         } else {
             return view('user.userHome');

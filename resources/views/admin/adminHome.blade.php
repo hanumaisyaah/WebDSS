@@ -91,7 +91,7 @@
               </a>
               <div class="collapse" id="ui-basic1">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" id="button-product" ">Alternative</a></li>
+                  <li class="nav-item"> <a class="nav-link" id="button-product"  href="{{ route('admin.alternative') }}">Alternative</a></li>
                   <li class="nav-item"> <a class="nav-link {{ Request::path() === 'admin/categories' ? 'active' : '' }}" href="">Criteria</a></li>
                 </ul>
               </div>

@@ -29,4 +29,5 @@ Route::middleware(['auth'])->group(function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('adminHome');
+Route::get('/alternative', [App\Http\Controllers\AlternativeController::class, 'index'])->name('admin.alternative');
 

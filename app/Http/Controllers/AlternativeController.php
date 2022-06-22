@@ -15,8 +15,8 @@ class AlternativeController extends Controller
      */
     public function index()
     {
-        $alternatif = DB::table('alternative')->get();
-        return view ('admin.index', compact('alternatif'));
+        $alternative = DB::table('alternative')->get();
+        return view ('admin.IndAlt', compact('alternative'));
     }
 
     /**
