@@ -30,7 +30,7 @@ class HomeController extends Controller
         if (Auth::User()->level == 1) {
             return view('admin.adminHome');
         } else {
-            return view('user.userHome');
+            return view('user.index');
         }
     }
 }
