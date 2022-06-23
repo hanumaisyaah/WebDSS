@@ -23,9 +23,6 @@
 						<div class="col">
 							<h4 class="card-title">Data Alternative</h4>
 						</div>
-						<div class="col text-right">
-							<a href="{{ url('/admin/categories/add') }}" class="btn btn-primary">Tambah</a>
-						</div>
 					</div>
 					<div class="table-responsive">
 						<table class="table table-bordered" id="alternativeTable">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\alternative;
 use Illuminate\Http\Request;
 use App\Models\criteria;
 use DB;
@@ -16,7 +17,7 @@ class CriteriaController extends Controller
     public function index()
     {
         $kriteria = DB::table('criteria')->get();
-        return view ('kriteria.index', compact('kriteria'));
+        return view ('admin.IndCri', compact('kriteria'));
     }
 
     /**
@@ -26,7 +27,8 @@ class CriteriaController extends Controller
      */
     public function create()
     {
-        return view('kriteria.create');
+        $alternative = alternative::get();
+        return view('admin.AddCriteria', compact('alternative'));
     }
 
     /**
@@ -38,13 +40,14 @@ class CriteriaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama_kriteria'=>'required',
-            'bobot'=>'required',
+            'criteria_name'=>'required',
+            'attribute'=>'required',
+            'weight'=>'required',
         ]);
 
         criteria::create($request->all());
 
-        return redirect()->route('criteria.index')
+        return redirect()->route('admin.criteria')
             ->with('Sukses, kriteria telah ditambahkan');
     }
 
@@ -68,7 +71,7 @@ class CriteriaController extends Controller
     public function edit($id)
     {
         $kriteria = DB::table('criteria')->where('id', $id)->first();
-        return view('kriteria.edit', compact('kriteria'));
+        return view('kriteria.edit', compact('criteria'));
     }
 
     /**
@@ -81,9 +84,10 @@ class CriteriaController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nama_kriteria'=>'required',
-            'bobot'=>'required',
-        ]);;
+            'criteria_name'=>'required',
+            'attribute'=>'required',
+            'weight'=>'required',
+        ]);
 
         criteria::find($id)->update($request->all());
 

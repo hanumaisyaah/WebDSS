@@ -30,4 +30,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('adminHome');
 Route::get('/alternative', [App\Http\Controllers\AlternativeController::class, 'index'])->name('admin.alternative');
+Route::get('/criteria', [App\Http\Controllers\CriteriaController::class, 'index'])->name('admin.criteria');
+Route::get('admin/criteria/add', [App\Http\Controllers\CriteriaController::class, 'create'])->name('admin.AddCriteria');
+
 
