@@ -92,21 +92,16 @@
               <div class="collapse" id="ui-basic1">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item"> <a class="nav-link" id="button-product"  href="{{ route('admin.alternative') }}">Alternative</a></li>
-                  <li class="nav-item"> <a class="nav-link {{ Request::path() === 'admin.criteria' ? 'active' : '' }}" href="{{ route('admin.alternative') }}">Criteria</a></li>
+                  <li class="nav-item"> <a class="nav-link {{ Request::path() === 'admin.criteria' ? 'active' : '' }}" href="{{ route('admin.criteria') }}">Criteria</a></li>
                 </ul>
               </div>
             </li>
             <li class="nav-item ">
-              <a id="button-trans" data-toggle="collapse" href="#ui-basic1" aria-expanded="false" aria-controls="ui-basic1" >
+              <a id="button-trans" class="nav-link"  href="/admin/ranking"  >
                 <span class="menu-title">Sistem Ranking</span>
                 <i class="menu-arrow"></i>
-                <i class="mdi mdi mdi-table-large menu-icon"></i>
+                <i class="mdi mdi-shopping menu-icon"></i>
               </a>
-              <div class="collapse" id="ui-basic1">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" id="button-product"  href="{{ route('admin.results') }}">Ranking Results</a></li>
-                </ul>
-              </div>
             </li>
             <li class="nav-item ">
               <a class="nav-link" data-toggle="collapse" href="#ui-basic2" aria-expanded="false" aria-controls="ui-basic2">
