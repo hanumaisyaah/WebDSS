@@ -17,16 +17,14 @@ class UserSeeder extends Seeder
     {
         $users=[
         [
-            'id' => 2,
+            'id' => 1,
             'name' => 'admin',
             'email' => 'admin@gmail.com',
             'email_verified_at' => NULL,
             'password' => Hash::make('admin123'),
             'level' => 1,
-
         ],
     ];
-
     User::insert($users);
     }
 }
