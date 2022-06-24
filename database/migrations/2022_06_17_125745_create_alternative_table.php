@@ -17,11 +17,11 @@ class CreateAlternativeTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('nama_mahasiswa');
-            $table->float('grade');
+            $table->double('grade');
             $table->string('major');
-            $table->float('gpa');
-            $table->float('skkm');
-            $table->float('parentsalary');
+            $table->double('gpa');
+            $table->double('skkm');
+            $table->double('parentsalary');
         });
     }
 

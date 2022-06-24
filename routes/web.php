@@ -32,6 +32,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/alternative', [App\Http\Controllers\AlternativeController::class, 'index'])->name('admin.alternative');
 Route::get('/criteria', [App\Http\Controllers\CriteriaController::class, 'index'])->name('admin.criteria');
 Route::get('admin/criteria/add', [App\Http\Controllers\CriteriaController::class, 'create'])->name('admin.AddCriteria');
-Route::get('/ranking', [App\Http\Controllers\ProcessController::class, 'results'])->name('admin.results');
+Route::get('/ranking', [App\Http\Controllers\ProcessController::class, 'process'])->name('admin.results');
 
 

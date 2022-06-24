@@ -18,7 +18,7 @@ class CreateCriteriaTable extends Migration
             $table->timestamps();
             $table->string("criteria_name");
             $table->string("attribute");
-            $table->float("weight");
+            $table->double("weight");
         });
     }
 
