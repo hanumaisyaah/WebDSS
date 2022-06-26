@@ -96,8 +96,8 @@
 
         <ul class="menu-inner py-1">
           <!-- Dashboard -->
-          <li class="menu-item ">
-            <a href="{{ route('alternative.store') }}" class="menu-link">
+          <li class="menu-item {{ Request::path() === 'home' ? 'active' : '' }}">
+            <a href="{{ url('/home')  }}" class="menu-link">
               <i class="menu-icon tf-icons bx bx-home-circle"></i>
               <div data-i18n="Analytics">Dashboard</div>
             </a>
@@ -111,14 +111,6 @@
               <div data-i18n="Form Elements">Input Data</div>
             </a>
 
-          </li>
-
-          <!-- Tables -->
-          <li class="menu-item">
-            <a href="tables-basic.html" class="menu-link">
-              <i class="menu-icon tf-icons bx bx-table"></i>
-              <div data-i18n="Tables">Pengumuman</div>
-            </a>
           </li>
 
           <a href="https://github.com/themeselection/sneat-html-admin-template-free/issues" target="_blank" class="menu-link">
