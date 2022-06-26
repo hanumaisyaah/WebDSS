@@ -47,7 +47,7 @@
                   <td>{{$result-> major}}</td>
                   <td>{{$result-> gpa}}</td>
                   <td>{{$result-> skkm}}</td>
-                  <td>{{$result-> parentsalary}}</td>
+                  <td>{{$result-> parent_salary}}</td>
                 </tr>
                 @endforeach
               </tbody>

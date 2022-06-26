@@ -48,7 +48,7 @@
 									<td>{{ $alt->major }}</td>
 									<td>{{ $alt->gpa }}</td>
 									<td>{{ $alt->skkm }}</td>
-									<td>{{ $alt->parentsalary }}</td>
+									<td>{{ $alt->parent_salary }}</td>
 									<td>
 										<form action="{{ route('alternative.destroy',['alternative'=>$alt->id]) }}" method="POST">
 											<a class="btn btn-info" href=" {{route('alternative.edit',$alt->id) }}" id="edit{{$alt->id}}">Edit</i></a>

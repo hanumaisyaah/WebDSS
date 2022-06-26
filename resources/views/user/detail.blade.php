@@ -15,7 +15,7 @@
                     <li class="list-group-item"><b>Major: </b>{{$alternatif->major}}</li>
                     <li class="list-group-item"><b>GPA: </b>{{$alternatif->gpa}}</li>
                     <li class="list-group-item"><b>SKKM: </b>{{$alternatif->skkm}}</li>
-                    <li class="list-group-item"><b>Parent Salary: </b>{{$alternatif->parentsalary}}</li>
+                    <li class="list-group-item"><b>Parent Salary: </b>{{$alternatif->parent_salary}}</li>
                 </ul>
             </div>
             <a class="btn btn-success mt-3" href="{{ route('alternatif.index') }}">Back</a>

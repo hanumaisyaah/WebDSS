@@ -18,7 +18,7 @@
       <h5 class="card-title">Lihat pengumuman</h5>
       <p class="card-header bg-success">Silahkan klik button dibawah untuk melihat hasil pengumuman</p>
       <div class="float-left my-3">
-				<a class="btn btn-primary" href="{{ route('alternative.create') }}" id = "addAlternative"> Lihat Hasil Pengumuman</a>
+				<a class="btn btn-primary" href="{{ route('alternative.RankingResult') }}" id = "addAlternative"> Lihat Hasil Pengumuman</a>
 			</div>
     </div>
   </div>

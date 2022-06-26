@@ -21,7 +21,7 @@ class CreateAlternativeTable extends Migration
             $table->string('major');
             $table->double('gpa');
             $table->double('skkm');
-            $table->double('parentsalary');
+            $table->double('parent_salary');
         });
     }
 

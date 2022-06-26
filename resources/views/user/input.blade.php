@@ -54,7 +54,7 @@
 	</div><br>
 	<div class="form-group">
 		<label for="parentsalary"><Strong>Parent Salary</label>
-		<input type="text" name="parentsalary" class="form-control" id="parentsalary">
+		<input type="text" name="parent_salary" class="form-control" id="parent_salary">
 	</div><br>
 	<button type="submit" class="btn btn-primary" id = "submit" ><Strong>Simpan Data</button>
 </form><br>

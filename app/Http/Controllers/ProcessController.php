@@ -15,11 +15,11 @@ class ProcessController extends Controller
         $ids = implode(',', $ranked);
         $results = Alternative::whereIntegerInRaw('id', $ranked)
             ->orderByRaw(Alternative::raw("FIELD(id, $ids)"))
-            ->get(['id', 'nama_mahasiswa', 'grade', 'major', 'gpa', 'skkm', 'parentsalary']);
-        $cartoons = Alternative::get(['id', 'nama_mahasiswa', 'grade', 'major', 'gpa', 'skkm', 'parentsalary']);
+            ->get(['id', 'nama_mahasiswa', 'grade', 'major', 'gpa', 'skkm', 'parent_salary']);
+        $alter = Alternative::get(['id', 'nama_mahasiswa', 'grade', 'major', 'gpa', 'skkm', 'parent_salary']);
         $criteria = Criteria::all();
-        Session::flash('success', $results[0]->cartoon_name . ' is the highest-ranking among all your choices');
-        return view('RankingResults', compact('alternative', 'criteria', 'results'));
+        Session::flash('success', $results[0]->nama_mahasiswa . ' is the highest-ranking among all your choices');
+        return view('admin.RankingResults', compact('alter', 'criteria', 'results'));
     }
     public function process()
     {
@@ -66,38 +66,35 @@ class ProcessController extends Controller
         }
         return $scores;
     }
-    public function minMax($criteria, $alternative, $weighted)
+    public function minMax($criteria, $alternative, $scores)
     {
-        $scores = $weighted;
-        $max = array();
-        $min = array();
+        $results = array();
         foreach ($alternative as $alter) {
             $valueMax = 0;
             $valueMin = 0;
             foreach ($criteria as $criterion) {
-                if ($criterion->criteria_type == 'benefit') {
+                if ($criterion->attribute == 'benefit') {
                     $valueMax +=  $scores[$alter][$criterion->criteria_name];
-                } else if ($criterion->criteria_type == 'cost') {
+                } else if ($criterion->attribute == 'cost') {
                     $valueMin +=  $scores[$alter][$criterion->criteria_name];
                 }
             }
-            $max[$alter] = $valueMax;
-            $min[$alter] = $valueMin;
+            $results[$alter]['max'] = $valueMax;
+            $results[$alter]['min'] = $valueMin;
         }
-        return $this->ranking($alter, $max, $min);
+        return $results;
     }
-    public function ranking($alternative, $max, $min)
+    public function ranking($alternative, $results)
     {
         $ranking = array();
-        dd($ranking);
-        if(is_array($ranking) || is_object($ranking)){
-            foreach ($alternative as $alter) {
-                $value = $max[$alter] - $min[$alter];
-                $ranking[$alter] = $value;
-            }
+        foreach ($alternative as $alter) {
+            $value = $results[$alter]['max'] - $results[$alter]['min'];
+            $ranking[$alter] = $value;
         }
         return $this->sort($ranking);
+
     }
+
     public function sort($ranking)
     {
         arsort($ranking, SORT_NUMERIC);

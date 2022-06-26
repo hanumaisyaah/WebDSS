@@ -43,7 +43,7 @@ class AlternativeController extends Controller
             'major'=>'required',
             'gpa'=>'required',
             'skkm'=>'required',
-            'parentsalary'=>'required',
+            'parent_salary'=>'required',
         ]);
 
         alternative::create($request->all());
@@ -89,7 +89,7 @@ class AlternativeController extends Controller
             'major'=>'required',
             'gpa'=>'required',
             'skkm'=>'required',
-            'parentsalary'=>'required',
+            'parent_salary'=>'required',
         ]);
 
         alternative::find($id)->update($request->all());
