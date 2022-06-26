@@ -89,7 +89,7 @@ class ProcessController extends Controller
     {
         $ranking = array();
         foreach ($alternative as $alter) {
-            $value = $results[$alter]['max'];
+            $value = $results[$alter]['max']-$results[$alter]['min'];
             $ranking[$alter] = $value;
         }
         return $this->sort($ranking);
