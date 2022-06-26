@@ -33,7 +33,8 @@ class ProcessController extends Controller
         // Sum of weighted and get final result
         $finalResult = $this->minMax($criteria, $alter, $weighted);
         // Send to results
-        $ranked = array_keys($finalResult);
+        $FinalFinal = $this->ranking($alter, $finalResult);
+        $ranked = array_keys($FinalFinal);
         return $this->results($ranked);
     }
 
@@ -73,9 +74,9 @@ class ProcessController extends Controller
             $valueMax = 0;
             $valueMin = 0;
             foreach ($criteria as $criterion) {
-                if ($criterion->attribute == 'benefit') {
+                if ($criterion-> attribute == 'benefit') {
                     $valueMax +=  $scores[$alter][$criterion->criteria_name];
-                } else if ($criterion->attribute == 'cost') {
+                } else if ($criterion-> attribute == 'cost') {
                     $valueMin +=  $scores[$alter][$criterion->criteria_name];
                 }
             }
@@ -88,11 +89,10 @@ class ProcessController extends Controller
     {
         $ranking = array();
         foreach ($alternative as $alter) {
-            $value = $results[$alter]['max'] - $results[$alter]['min'];
+            $value = $results[$alter]['max'];
             $ranking[$alter] = $value;
         }
         return $this->sort($ranking);
-
     }
 
     public function sort($ranking)

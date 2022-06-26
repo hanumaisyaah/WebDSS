@@ -41,7 +41,7 @@
                 @php $no = 1; @endphp
                 @foreach ($results as $result)
                 <tr>
-                  <td># {{$no++}}</td>
+                  <td> {{$no++}}</td>
                   <td>{{$result-> nama_mahasiswa}}</td>
                   <td>{{$result-> grade}}</td>
                   <td>{{$result-> major}}</td>

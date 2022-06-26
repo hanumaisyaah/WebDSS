@@ -36,11 +36,8 @@
                                     <input required type="text" class="form-control" name="criteria_name">
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Attribute</label>
-                                    <select class="form-control" name="attribute" id="exampleFormControlSelect2">
-                                        <option value= "benefit">Benefit</option>
-                                        <option value= "cost">Cost</option>
-                                    </select>
+                                    <label for="exampleInputUsername1">Attribute</label>
+                                    <input required type="text" class="form-control" name="attribute">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputUsername1">Weight</label>

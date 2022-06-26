@@ -91,7 +91,7 @@ class CriteriaController extends Controller
 
         criteria::find($id)->update($request->all());
 
-        return redirect()->route ('criteria.index')
+        return redirect()->route ('admin.kriteria.update')
             ->with('Sukses, Kriteria berhasil diperbarui');
     }
 
@@ -104,7 +104,7 @@ class CriteriaController extends Controller
     public function destroy($id)
     {
         criteria::find($id)->delete();
-        return redirect()->route('criteria.index')
+        return redirect()->route('admin.criteria')
             ->with('Sukses,kriteria berhasil dihapus');
     }
     public function search(Request $request)

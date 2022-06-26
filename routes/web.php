@@ -50,5 +50,5 @@ Route::get('/criteria', [App\Http\Controllers\CriteriaController::class, 'index'
 Route::get('admin/criteria/add', [App\Http\Controllers\CriteriaController::class, 'create'])->name('admin.AddCriteria');
 Route::get('/ranking', [App\Http\Controllers\ProcessController::class, 'process'])->name('admin.results');
 Route::post('/admin/criteria/update/{id}', [App\Http\Controllers\CriteriaController::class, 'update'])->name('admin.kriteria.update');
-Route::get('/admin/criteria/edit/{id}', [App\Http\Controllers\CriteriaController::class, 'edit'])->name('admin.EditCri');
+Route::post('/admin/criteria/edit/{id}', [App\Http\Controllers\CriteriaController::class, 'edit'])->name('admin.EditCri');
 Route::get('/admin/criteria/delete/{id}', [App\Http\Controllers\CriteriaController::class, 'destroy'])->name('admin.kriteria.delete');
