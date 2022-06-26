@@ -28,7 +28,7 @@ Route::get('/admin', function () {
 
 Route::get('/user', function () {
     if (Auth::check()) {
-        return redirect()->route('index');
+        return redirect()->route('index')->name('index');;
     }
     return redirect()->route('login');
 });
